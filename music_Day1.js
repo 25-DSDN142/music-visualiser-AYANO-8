@@ -31,9 +31,9 @@ let Yellow = color(255, 255, 0);
 let red = color (255, 0, 0);
 let changingColor = lerpColor(Yellow, red, 0.99);
 let changingColor1= lerpColor(Yellow, red, 0.88);
-noStroke();
+/*noStroke();
 fill(red);
 rect(600, 600, 30, 30);
-
+*/
 
 }
