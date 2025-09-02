@@ -1,39 +1,42 @@
-
-let size = 300;
+/*let size = 300;
 let ookisa = 300;
 let Yellow = color(255, 255, 0);
-let red = color (255, 0, 0);
-let rabbit = [];
+let red = color (255, 0, 0);*/
+let firstRun = true
+let snail = [];
 
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame( vocal, drum, bass, other,) {
-colorMode(RGB, 255);
-background(0);
+if (firstRun){
+ /*colorMode(RGB, 255);*/
+
 rectMode(CENTER);
 
-rabbit.push(loadImage('rabbit_0.png'));
-rabbit.push(loadImage('rabbit_1.png'));
-rabbit.push(loadImage('rabbit_2.png'));
+snail.push(loadImage('snail_0.png'));
+snail.push(loadImage('snail_1.png'));
+snail.push(loadImage('snail_2.png'));
 
 
-var VocalFrame = int(map(vocal, 0, 100, 0, 2));
-console.log(VocalFrame);
+
+firstRun = false
+}
+
+background(0);
+
+var VocalFrame = int(map(vocal, 0, 100, 0, 3));
+VocalFrame = constrain(VocalFrame, 0, 2); // 0,1,2 のみ
+
+console.log("Frame:", VocalFrame);
+
+
 push();
 scale(0.5);
-Image(rabbit[VocalFrame], 500, 500)
-Pop();
+image(snail[VocalFrame], 50, 50)
+pop();
 
 
-
-
-
-
-
-
-
-
-colorMode(HSB, 100);
+/*colorMode(HSB, 100);
 fill(255, 255, 0);
 strokeWeight(9)
 stroke(drum, 80, 80);
@@ -50,14 +53,14 @@ line(LineStart, 500, lineEnd, 700);
 for(let i =1; i <=drumMap; i= i+1){
 let lineStep = i*8;
 line(LineStart, lineStep, lineEnd, lineStep);
-
 }
+
 
 colorMode(RGB, 255);
 noStroke();
 
 
-/*fill(255, 245, 230);
+fill(255, 245, 230);
 rect(50,50, bass, bass);
 ellipse(400, 500, other,other);
 
@@ -86,9 +89,9 @@ if (ookisa > 770) {
 }
 
 
-/*fill(255, 245, 230);
-rect(50,50, bass, bass);
-ellipse(400, 500, other,other);*/
+//fill(255, 245, 230);
+//rect(50,50, bass, bass);
+//ellipse(400, 500, other,other);
 
 }
 
@@ -97,8 +100,8 @@ ellipse(400, 500, other,other);*/
 
 
 
-/*let changingColor = lerpColor(Yellow, red, 0.99);
-let changingColor1= lerpColor(Yellow, red, 0.88);
-noStroke();
-fill(lerpColor);
-rect(600, 600, 30, 30);*/
+//let changingColor = lerpColor(Yellow, red, 0.99);
+//let changingColor1= lerpColor(Yellow, red, 0.88);
+//noStroke();
+//fill(lerpColor);
+//rect(600, 600, 30, 30);
