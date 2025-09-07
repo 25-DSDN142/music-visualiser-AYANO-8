@@ -1,11 +1,8 @@
 let stage = 0;
 let stageStarttime = 0;
-let circleAngle = 0;
-
 let snail1= [];
 let snail2 =[];
-let fallingCircles = [];
-let triangleColor = [];
+let fallingcircles = [];
 
 function setup() {
     createCanvas(600, 800);
@@ -25,7 +22,6 @@ function setup() {
     
     });
  }
-
 let rainbowColors = [
     color(255, 0, 0),
     color(255, 127, 0),
