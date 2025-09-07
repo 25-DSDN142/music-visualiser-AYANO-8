@@ -26,6 +26,25 @@ function setup() {
     });
  }
 
+let rainbowColors = [
+    color(255, 0, 0),
+    color(255, 127, 0),
+    color(255, 255, 0),
+    color(127,255, 0),
+    color(0, 255, 0),
+    color(0, 255, 127),
+    color(0, 255, 255),
+    color(0, 127, 255),
+    color(0,0, 255),
+    color(127, 0, 255),
+    color(255, 0 ,255),
+    color(255, 0, 127),
+
+];
+for (let i =0;){
+triangleColor.push(color(
+}
+
 
 
 
