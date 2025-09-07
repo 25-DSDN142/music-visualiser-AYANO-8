@@ -41,8 +41,6 @@ let rainbowColors = [
     color(255, 0, 127),
 
 ];
-for (let i =0;){
-triangleColor.push(color(
 }
 
 
