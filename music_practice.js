@@ -36,7 +36,7 @@ image(snail[VocalFrame], 50, 50)
 pop();
 
 
-/*colorMode(HSB, 100);
+colorMode(HSB, 100);
 fill(255, 255, 0);
 strokeWeight(9)
 stroke(drum, 80, 80);
@@ -69,11 +69,11 @@ ellipse(400, 500, other,other);
 fill(255, 255,0);
  ellipse(150, size, vocal, vocal);
  fill(30,144,255);
- rect(30, 40, vocal, vocal);*/
+ rect(30, 40, vocal, vocal);
 
  
 
-size = size + 1;
+/*size = size + 1;
 if (size > 1000) {
     size=0
 }
@@ -87,11 +87,11 @@ ookisa = ookisa +10;
 if (ookisa > 770) {
     ookisa=0
 }
+*/
 
-
-//fill(255, 245, 230);
-//rect(50,50, bass, bass);
-//ellipse(400, 500, other,other);
+fill(255, 245, 230);
+rect(50,50, bass, bass);
+ellipse(400, 500, other,other);
 
 }
 
@@ -104,3 +104,4 @@ if (ookisa > 770) {
 //let changingColor1= lerpColor(Yellow, red, 0.88);
 //noStroke();
 //fill(lerpColor);
+
