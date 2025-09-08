@@ -83,92 +83,67 @@ function draw_one_frame(vocal, drum, bass, other){
 function drawStage1(画像番号, vocal, drum, 経過時間) {
     image(カタツムリ2画像 [画像番号], width/2, height /2, 200, 200);
      
-    drawCenterCircle(vocal);
-    drawRotatingtriangles(drum);
+    let 円サイズ= map(vocal, 0, 100, 50, 200);
+    noStroke();
+    fill(255, 200, 0);
+    ellipse(width/2, height/ 2, 円サイズ);
+     push();
+     translate(wigth/ 2, height/2);
+     let三角半径= map(drum, 0, 100, 円サイズ/2 +20, 円サイズ/2 +80);
+     for (let i =0; i<三角数; i++) {
+        let angle = 三角回転角 + (360/三角数) * i;
+        let x = cos(angle) * 三角半径;
+        let y = sin (angle) * 三角半径；
+        fill(三角色[i]);
+        push();
+        translate(x,y);
+        rotate (angle);
+        triang (0, -10, -10, 10, 10, 10);
+        pop();
+     }
+pop();
+三角回転角 +=2;
 
 
 
-
-    
-    if (elapsed >120000) {
-        stage =2;
-        stageStartTime =millis();
+    if (経過時間 >120000) {
+        ステージ =2;
+        ステージの開始時間 =millis();
 
     }
 }
 
 //ステージ２
-function drawStage2 (image, bass, other, elapsed) {
-    image(snail2Images [image], width/2, height/2, 200, 200);
-    drawfallingCircles (other, bass);
-    if (elapsed >60000) noLoop();
+function drawStage2 (画像番号, bass, other, 経過時間) {
+    image(カタツムリ2画像 [画像番号], width/2, height/2, 200, 200);
+   
 
-}
-
-
-let circlrSize =map(vocal, ookisa1, 100, 50, 200);
-noStroke();
-fill (255, 200, 0);
-ellipse(width/2, height/2, circleSize);
-
-
-
-push();
-translate8width/2, heighr/2);
-let triangleRadius =map(drum, 0, 100, circleSize/2)
-
-for (let i =0; i<numTriangles; i++) {
-    let angle = circleAngle + (360 / numTriangles)* i;
-
-    //三角形の中心座標
-    let x = cos(angle) * triangleRadius;
-    let y =sin (angle) * triangleRadius;
-
-    fill (trianglecolor[i]);
-
-    push();
-    translate(x, y);
-    rotate (angle);
-    triang (0, -10, -10, 10, 10, 10);
-    pop();
-}
-pop();
-
-circlrAngle +=2;
-
-
-
-
-
-
-
-
-image (snail2Images[image],width/2, height/2, 200, 200)
 
 fill(255, 30, 43);
-ellipse(150, ookisa, bass, bass);
-ookisa +=10;
-if (ookisa1 >height) ookisa =0;
+ellipse(150, 丸1Y, bass, bass);
+丸1Y +=10;
+if (丸1Y >height) 丸1Y =0;
 
 fill(255, 50, 100);
-ellipse(300, ookisa2, bass, bass);
-ookisa2 +=8;
-if (ookisa2 >height)ookisa2 =0;
+ellipse(300, 丸2Y, bass, bass);
+丸2Y +=8;
+if (丸2Y >height)丸2Y=0;
 
 fill(255, 200, 50);
-ellipse(450, ookisa3, bass, bass);
-ookisa3 +=12;
-if (ookisa3>height) ookisa3 =0;
+ellipse(450, 丸3Y, bass, bass);
+丸3Y +=12;
+if (丸3Y>height) 丸3Y =0;
+
+
+noStroke();
+for (let c of 落ちる丸配列) {
+    let 円サイズ = map(other, 0, 100, c.baseSize/2, c.baseSize*2);
+    fill(c.color);
+    ellipse(c.x,c.y, 円サイズ);
+    c. y += c.speed;
+    if (c.y >height) c.y =rendom (-height, 0);
+
 }
 
-
-
-
-
-
-
-
-
-
-
+if (経過時間>60000) noLoop();
 }
