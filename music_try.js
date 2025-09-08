@@ -2,8 +2,8 @@ let ステージ = 0; //現在のステージ
 let ステージの開始時間 = 0;//ステージの開始時間
 let 三角回転角= 0;//三角形の回転角度
 
-let カタツムリ１画像= [];
-let カタツムリ２画像 =[];
+let カタツムリ1画像= [];
+let カタツムリ2画像 =[];
 let 落ちる丸配列 = [];
 let 三角色=[];
 
@@ -19,8 +19,8 @@ function setup() {
     createCanvas(600, 800);
     angleMode(DEGREES);
 
- カタツムリ１画像= [loadImage('snail_0.png'),loadImage('snail_1.png')];
- カタツムリ２画像=[loadImage('snail_2.png'),loadImage('snail_3.png')];
+ カタツムリ1画像= [loadImage('snail_0.png'),loadImage('snail_1.png')];
+ カタツムリ2画像=[loadImage('snail_2.png'),loadImage('snail_3.png')];
 
  //落ちる丸の初期化をする
 
@@ -44,25 +44,25 @@ function setup() {
 
 ];
 
-for (let i =0; i >三角数; i++){
-    const c = reainbowColors[i];
-    三角色.push(color([0], c[1], c[2]));
+for (let i =0; i <三角数; i++){
+    const c = rainbowColors[i];
+    三角色.push(color(c[0], c[1], c[2]));
 }
 ステージの開始時間 = millis();
 
 }
 
 function draw_one_frame(vocal, drum, bass, other){
-    backfround(0);
-    ImageMode(CENTER)+
+    background(0);
+    imageMode(CENTER)
 
-    let 画像番号=contrain(int(map(vocal, 0, 100, 0 ,1)), 0, 1);
+    let 画像番号=constrain(int(map(vocal, 0, 100, 0 ,1)), 0, 1);
     
-    let 経過時間 = millis() - stageStarttime;
+    let 経過時間 = millis() -ステージの開始時間;
 
    
 
-    if (ステージ ==0) drawStage0(画像番号, elapsed);
+    if (ステージ ==0) drawStage0(画像番号, 経過時間);
     else if (ステージ ==1) drawStage1(画像番号, vocal, drum, 経過時間);
     else if (ステージ ==2) drawStage2(画像番号, bass, other, 経過時間);
 
@@ -70,9 +70,9 @@ function draw_one_frame(vocal, drum, bass, other){
     
 
     //ステージ０の状態
-    founction drawStage0 (画像番号, 経過時間) {
-        image(カタツムリ1画像 [画像番号], wigth/2, height/2, 200, 200);
-        if (経過時間 >1000) {
+    function drawStage0 (画像番号, 経過時間) {
+        image(カタツムリ1画像 [画像番号], width/ 2, height/ 2, 200, 200);
+        if (経過時間 >10000) {
             ステージ =1;
             ステージの開始時間 =millis();
 
@@ -81,24 +81,24 @@ function draw_one_frame(vocal, drum, bass, other){
 
 //ステージ１の状態
 function drawStage1(画像番号, vocal, drum, 経過時間) {
-    image(カタツムリ2画像 [画像番号], width/2, height /2, 200, 200);
+    image(カタツムリ2画像 [画像番号], width/ 2, height/ 2, 200, 200);
      
     let 円サイズ= map(vocal, 0, 100, 50, 200);
     noStroke();
     fill(255, 200, 0);
-    ellipse(width/2, height/ 2, 円サイズ);
+    ellipse(width/ 2, height/ 2, 円サイズ);
      push();
-     translate(wigth/ 2, height/2);
-     let三角半径= map(drum, 0, 100, 円サイズ/2 +20, 円サイズ/2 +80);
+     translate(width/ 2, height/ 2);
+     let 三角半径= map(drum, 0, 100, 円サイズ/ 2 +20, 円サイズ/ 2 +80);
      for (let i =0; i<三角数; i++) {
         let angle = 三角回転角 + (360/三角数) * i;
         let x = cos(angle) * 三角半径;
-        let y = sin (angle) * 三角半径；
+        let y = sin (angle) * 三角半径;
         fill(三角色[i]);
         push();
         translate(x,y);
         rotate (angle);
-        triang (0, -10, -10, 10, 10, 10);
+        triangle (0, -10, -10, 10, 10, 10);
         pop();
      }
 pop();
@@ -115,7 +115,7 @@ pop();
 
 //ステージ２
 function drawStage2 (画像番号, bass, other, 経過時間) {
-    image(カタツムリ2画像 [画像番号], width/2, height/2, 200, 200);
+    image(カタツムリ2画像 [画像番号], width/ 2, height/ 2, 200, 200);
    
 
 
@@ -137,13 +137,19 @@ if (丸3Y>height) 丸3Y =0;
 
 noStroke();
 for (let c of 落ちる丸配列) {
-    let 円サイズ = map(other, 0, 100, c.baseSize/2, c.baseSize*2);
+    let 円サイズ = map(other, 0, 100, c.baseSize/ 2, c.baseSize* 2);
     fill(c.color);
     ellipse(c.x,c.y, 円サイズ);
-    c. y += c.speed;
-    if (c.y >height) c.y =rendom (-height, 0);
+    c.y += c.speed;
+    if (c.y >height) c.y =random (-height, 0);
 
 }
 
 if (経過時間>60000) noLoop();
+
+/*function preload() { 
+ カタツムリ1画像= [loadImage('snail_0.png'),loadImage('snail_1.png')];
+ カタツムリ2画像=[loadImage('snail_2.png'),loadImage('snail_3.png')];*/
+
+  
 }
