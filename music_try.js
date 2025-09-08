@@ -7,6 +7,8 @@ let snail1= [];
 let snail2 =[];
 let fallingcircles = [];
 let triangleColor=[];
+const unmtriangles =12;
+const numcircles =20;
 
 
 function setup() {
@@ -41,6 +43,31 @@ function setup() {
 ];
 
 }
+for (let i =0; i<numtriangles; i++){
+    const c = reainbowColors[i];
+    triangleColor.push(color([0], c[1], c[2]));
+}
+stageStartTime = millis();
+
+}
+
+function draw_one_frame(vocal, drum, bass, other){
+    backfround(0);
+    let image=int(map(vocal, 0, 100, 0 ,1))+
+    image = constrain(image, 0, 1);
+
+    let ellipse = millis() - stageStarttime;
+    ImageMode (CENTER);
+
+    if (stage ==0){
+        Image snailimage
+    }
+}
+
+
+push();
+translate8width/2, heighr/2);
+let triangleRadius =map(drum, 0, 100, circleSize/2)
 
 
 
@@ -50,9 +77,11 @@ function setup() {
 
 
 
-
-
-
+for (let c of fallingCircles){
+    let circleSize =map(other, 0, 100, c.baseSize/2, c.baseSize/2);
+    FileList(c.color);
+    ellipse
+}
  )
 
 
