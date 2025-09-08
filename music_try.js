@@ -1,33 +1,31 @@
-let stage = 0; //現在のステージ
-let stageStarttime = 0;//ステージの開始時間
+let ステージ = 0; //現在のステージ
+let ステージの開始時間 = 0;//ステージの開始時間
+let 三角回転角= 0;//三角形の回転角度
 
-let circleAngle= 0;//三角形の回転角度
+let カタツムリ１画像= [];
+let カタツムリ２画像 =[];
+let 落ちる丸配列 = [];
+let 三角色=[];
 
-let snail1= [];
-let snail2 =[];
-let fallingcircles = [];
-let triangleColor=[];
-const unmtriangles =12;
-const numcircles =20;
+const 三角数 =12;
+const 丸数=20;
 
-let ookisa1 =0;
-let ookisa2 =200;
-let ookisa3 =400;
+let 丸1Y =0;
+let 丸2Y =200;
+let 丸3Y =400;
 
 
 function setup() {
     createCanvas(600, 800);
     angleMode(DEGREES);
 
- snail1.push(loadImage('snail_0.png'));
- snail2.push(loadImage('snail_1.png'));
- snail3.push(loadImage('snail_2.png'));
- snail4.push(loadImage('snail_3.png'));
+ カタツムリ１画像= [loadImage('snail_0.png'),loadImage('snail_1.png')];
+ カタツムリ２画像=[loadImage('snail_2.png'),loadImage('snail_3.png')];
 
  //落ちる丸の初期化をする
 
- for (let i=0; i<20; i++){
-    fallingCircles.push({
+ for (let i=0; i<丸数; i++){
+    落ちる丸配列.push({
         x:random(width),
         y:random(-height, 0),
         baseSize:random(20, 50),
@@ -39,57 +37,59 @@ function setup() {
 
  //回転三角形の虹色設定１２個
  const rainbowColors=[
-(255, 0, 0),(255, 127, 0),(255, 255, 0),
-(127,255, 0),(0, 255, 0),(0, 255, 127),
-(0, 255, 255),(0, 127, 255),(0,0, 255),
-(227, 0, 255),(255, 0 ,255),(255, 0, 127),
+[255, 0, 0],[255, 127, 0],[255, 255, 0],
+[127,255, 0],[0, 255, 0],[0, 255, 127],
+[0, 255, 255],[0, 127, 255],[0,0, 255],
+[227, 0, 255],[255, 0 ,255],[255, 0, 127],
 
 ];
 
-}
-for (let i =0; i<numtriangles; i++){
+for (let i =0; i >三角数; i++){
     const c = reainbowColors[i];
-    triangleColor.push(color([0], c[1], c[2]));
+    三角色.push(color([0], c[1], c[2]));
 }
-stageStartTime = millis();
+ステージの開始時間 = millis();
 
 }
 
 function draw_one_frame(vocal, drum, bass, other){
     backfround(0);
-    let image=int(map(vocal, 0, 100, 0 ,1))+
-    image = constrain(image, 0, 1);
+    ImageMode(CENTER)+
 
-    let ellipse = millis() - stageStarttime;
-    ImageMode (CENTER);
+    let 画像番号=contrain(int(map(vocal, 0, 100, 0 ,1)), 0, 1);
+    
+    let 経過時間 = millis() - stageStarttime;
 
-    if (stage ==0){
-        drawStage0(image, elapsed);
-    }else if (stage ==1) {
-        drawStage1(image, vocal, drum, elapsed);
-    } else if (stage ==2) {
-        drawStage2(image, bass, other, elapsed);
+   
+
+    if (ステージ ==0) drawStage0(画像番号, elapsed);
+    else if (ステージ ==1) drawStage1(画像番号, vocal, drum, 経過時間);
+    else if (ステージ ==2) drawStage2(画像番号, bass, other, 経過時間);
 
     }
-    }
+    
 
     //ステージ０の状態
-    founction drawStage0 (image, elapsed) {
-        image(snail1Images [image], wigth/2, height/2, 200, 200);
-        if (elapsed >1000) {
-            stage =1;
-            stageStartTime =millis();
+    founction drawStage0 (画像番号, 経過時間) {
+        image(カタツムリ1画像 [画像番号], wigth/2, height/2, 200, 200);
+        if (経過時間 >1000) {
+            ステージ =1;
+            ステージの開始時間 =millis();
 
         }
     }
 
 //ステージ１の状態
-function drawStage1(image, vocal, drum, elapsed) {
-    image(snail2image [image], width/2, height /2, 200, 200);
+function drawStage1(画像番号, vocal, drum, 経過時間) {
+    image(カタツムリ2画像 [画像番号], width/2, height /2, 200, 200);
      
     drawCenterCircle(vocal);
     drawRotatingtriangles(drum);
 
+
+
+
+    
     if (elapsed >120000) {
         stage =2;
         stageStartTime =millis();
