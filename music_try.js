@@ -1,16 +1,24 @@
-let stage = 0;
-let stageStarttime = 0;
+let stage = 0; //現在のステージ
+let stageStarttime = 0;//ステージの開始時間
+
+let circleAngle= 0;//三角形の回転角度
+
 let snail1= [];
 let snail2 =[];
 let fallingcircles = [];
+let triangleColor=[];
+
 
 function setup() {
     createCanvas(600, 800);
+    angleMode(DEGREES);
 
  snail1.push(loadImage('snail_0.png'));
  snail2.push(loadImage('snail_1.png'));
  snail3.push(loadImage('snail_2.png'));
  snail4.push(loadImage('snail_3.png'));
+
+ //落ちる丸の初期化をする
 
  for (let i=0; i<20; i++){
     fallingCircles.push({
@@ -20,23 +28,18 @@ function setup() {
         speed:random(1,4),
         color: color(random(200,255), random(100, 255), 0)
     
-    });
+    });//赤から黄色まで
  }
-let rainbowColors = [
-    color(255, 0, 0),
-    color(255, 127, 0),
-    color(255, 255, 0),
-    color(127,255, 0),
-    color(0, 255, 0),
-    color(0, 255, 127),
-    color(0, 255, 255),
-    color(0, 127, 255),
-    color(0,0, 255),
-    color(127, 0, 255),
-    color(255, 0 ,255),
-    color(255, 0, 127),
+
+ //回転三角形の虹色設定１２個
+ const rainbowColors=[
+(255, 0, 0),(255, 127, 0),(255, 255, 0),
+(127,255, 0),(0, 255, 0),(0, 255, 127),
+(0, 255, 255),(0, 127, 255),(0,0, 255),
+(227, 0, 255),(255, 0 ,255),(255, 0, 127),
 
 ];
+
 }
 
 
