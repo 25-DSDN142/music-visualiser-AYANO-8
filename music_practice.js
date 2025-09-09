@@ -19,7 +19,7 @@ snail.push(loadImage('snail_2.png'));
 
 
 
-firstRun = false
+/*firstRun = false
 }
 
 background(0);
@@ -70,10 +70,10 @@ fill(255, 255,0);
  ellipse(150, size, vocal, vocal);
  fill(30,144,255);
  rect(30, 40, vocal, vocal);
-
+*/
  
 
-/*size = size + 1;
+size = size + 1;
 if (size > 1000) {
     size=0
 }
@@ -87,7 +87,7 @@ ookisa = ookisa +10;
 if (ookisa > 770) {
     ookisa=0
 }
-*/
+
 
 fill(255, 245, 230);
 rect(50,50, bass, bass);
