@@ -14,7 +14,7 @@ return;
   
   
   //console.log(pic);
-  background(0 )
+  background(15, 98, 73);
   textFont('Verdana'); // please use CSS safe fonts
   textSize(24);
   rectMode(CENTER);
@@ -22,10 +22,6 @@ return;
 let VocalFrame = int(map(vocal, 0, 100, 0, 3));
 VocalFrame = constrain(VocalFrame, 0, 2);
 
-push();
-scale (0.2);
-image(pic[VocalFrame],1500, 1000);
-pop ();
 
 /*var VocalFrame = int(map(vocal, 0, 100, 0, 3));
 VocalFrame = constrain(VocalFrame, 0, 2); // 0,1,2 のみ
@@ -38,7 +34,6 @@ scale(0.3);
 image(pic[VocalFrame], 50, 50)
 pop();
 */
-
 noStroke();
 fill (210, 180, 140);  
 quad(500, 450, 300, 450, 0,540,800,540);
@@ -73,6 +68,13 @@ ellipse(645, 400, 10, 10);
 ellipse(755, 400, 10, 10);
 ellipse(645, 500, 10, 10);
 ellipse(755, 500, 10, 10);
+
+push();
+scale (0.2);
+image(pic[VocalFrame],1500, 1000);
+pop ();
+
+
 
 
 
