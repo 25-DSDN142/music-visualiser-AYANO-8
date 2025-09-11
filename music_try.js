@@ -16,9 +16,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     pic[2] = loadImage("pic_3.png");
 imagesLoaded = true;
 return;
-}
-
-
+  }
 
 if (counter > 4950 && counter - lastAddedFrame >= meteorInterval) {
     for (let i = 0; i < 15; i++) { // 1回に5個
