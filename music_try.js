@@ -1,6 +1,10 @@
 let pic =[];
 let imagesLoaded = false;
+let stars = [];
+let numStars = 500;
 
+// 初期化フラグ
+let starsInitialized = false;
 
 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
@@ -11,10 +15,9 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 imagesLoaded = true;
 return;
 }
-  
-  
+
   //console.log(pic);
-  background(15, 98, 73);
+  background(0);
   textFont('Verdana'); // please use CSS safe fonts
   textSize(24);
   rectMode(CENTER);
@@ -22,6 +25,17 @@ return;
 let VocalFrame = int(map(vocal, 0, 100, 0, 3));
 VocalFrame = constrain(VocalFrame, 0, 2);
 
+  // 初回のみ星を初期化
+  if (!starsInitialized) {
+    for (let i = 0; i < numStars; i++) {
+      stars.push({
+        x: random(0, 800),
+        y: random(0, 540),
+        size: random(1,5),
+      });
+    }
+    starsInitialized = true;
+  }
 
 /*var VocalFrame = int(map(vocal, 0, 100, 0, 3));
 VocalFrame = constrain(VocalFrame, 0, 2); // 0,1,2 のみ
@@ -34,8 +48,18 @@ scale(0.3);
 image(pic[VocalFrame], 50, 50)
 pop();
 */
+
+for (let i = 0; i < stars.length; i++) {
+    let s = stars[i];
+    fill(225, random(200, 50)); // 光ってる感じだけ少しランダム
+    noStroke();
+    ellipse(s.x, s.y, s.size, s.size);
+  }
+
+
+
 noStroke();
-fill (210, 180, 140);  
+fill (220, 20, 60);  
 quad(500, 450, 300, 450, 0,540,800,540);
 
 stroke(75, 54, 33);
@@ -69,10 +93,31 @@ ellipse(755, 400, 10, 10);
 ellipse(645, 500, 10, 10);
 ellipse(755, 500, 10, 10);
 
+fill(255, 255, 0);
+ellipse(650, 150, 70, 70);
+fill(0);
+ellipse(630, 160, 50, 50);
+
+
 push();
 scale (0.2);
 image(pic[VocalFrame],1500, 1000);
 pop ();
+
+
+fill(105, 105, 105);
+rect(430, 350, 20, 10);
+fill(169,169, 169);
+ellipse(420, 350, 15, 15);
+rect(430, 430, 5, 150);
+
+stroke(169,169, 169);
+strokeWeight(2);
+line (430,470, 420, 505);
+line (430, 470, 440, 505);
+stroke(0);
+line (410, 400, 10);
+
 
 
 
