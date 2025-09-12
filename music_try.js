@@ -17,6 +17,7 @@ imagesloaded = true;
 return;
   }
 
+//shooting stars setting
 if (counter > 4950 && counter - lastaddedframe >= shootingstarsgap) {
  for (let i = 0; i < 15; i++) { 
  shootingstars.push({
@@ -34,7 +35,7 @@ textFont('Verdana');
 textSize(24);
 rectMode(CENTER);
 
-//images setting
+ //images setting
 let VocalFrame = int(map(vocal, 0, 100, 0, 3));
  VocalFrame = constrain(VocalFrame, 0, 2);
 
@@ -49,9 +50,9 @@ if (!starsInitialized) {
       });
     }
     starsInitialized = true;
-  }
+}
 
-  //push stars
+ //push stars
 for (let i = 0; i < stars.length; i++) {
  let s = stars[i];
  fill(255,255,230, random(200, 90)); // how many stars
@@ -59,7 +60,7 @@ for (let i = 0; i < stars.length; i++) {
  ellipse(s.x, s.y, s.size, s.size);
 }
 
-// 流れ星を描画・移動//star movement
+ // 流れ星を描画・移動//shooting stars
   for (let i = shootingstars.length - 1; i >= 0; i--) {
   let m = shootingstars[i];
   fill(255,255, 230);//soft yellow
