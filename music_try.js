@@ -21,8 +21,8 @@ return;
 }
 
 //shooting stars setting
-if (counter > 4900 && counter - lastaddedframe >= shootingstarsgap) {
- for (let i = 0; i < 40; i++) { 
+if (counter > 4950 && counter - lastaddedframe >= shootingstarsgap) {
+ for (let i = 0; i < 30; i++) { 
  shootingstars.push({
  x: random(0, 800),
  y: random(0, 540),
@@ -62,13 +62,13 @@ if( bass < 79) {
   BassFrame = 1;
 }
   
-/*if (bass < 79) {
+if (bass < 79) {
   BassFrame = 1;
 } else if (bass < 100) {
   BassFrame = 2;
 } else {
   BassFrame = 3;
-}*/
+}
 
 
  //stars setting
