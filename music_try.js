@@ -108,9 +108,9 @@ if (m.y > 540 || m.x > 800) {
 
 //stage
 noStroke();
-fill (255, 34, 78);  
+fill (234, 34, 100);  
 quad(500, 350, 300, 350, 0,450,800,450);
-fill(5, 98, 78);
+fill(52, 76, 183);
 rect(400,510, 800, 120);
 
 //speakers
@@ -121,7 +121,7 @@ rect(100, 340, 140, 200);
 rect(700, 340, 140, 200);
 
 noStroke();
-fill(30, 55, 89);
+fill(30, 9, 87);
 rect(100, 290, other, 50);//left speaker
 rect(700, 290, other, 50);//right speaker
 ellipse(100, 370, drum, drum);//left speaker
