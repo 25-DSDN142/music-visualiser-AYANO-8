@@ -21,7 +21,7 @@ return;
 }
 
 //shooting stars setting
-if (counter > 4950 && counter - lastaddedframe >= shootingstarsgap) {
+if (counter > 4900 && counter - lastaddedframe >= shootingstarsgap) {
  for (let i = 0; i < 40; i++) { 
  shootingstars.push({
  x: random(0, 800),
@@ -126,7 +126,6 @@ rect(100, 290, other, 50);//left speaker
 rect(700, 290, other, 50);//right speaker
 ellipse(100, 370, drum, drum);//left speaker
 ellipse(700, 370, drum, drum);//right speaker
-
 
 //circle around the speaker(left)
 ellipse(45, 260, 10, 10);
