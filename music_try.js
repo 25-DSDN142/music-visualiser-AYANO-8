@@ -13,6 +13,10 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     pic[0] = loadImage("pic_1.png");
     pic[1] = loadImage("pic_2.png");
     pic[2] = loadImage("pic_3.png");
+    pic[3] = loadImage("pic_4.png");
+    pic[4] = loadImage("pic_5.png");
+    pic[5] = loadImage("pic_6.png");
+    pic[6] = loadImage("pic_7.png");
 imagesloaded = true;
 return;
   }
@@ -38,6 +42,14 @@ rectMode(CENTER);
  //images setting
 let VocalFrame = int(map(vocal, 0, 100, 0, 3));
  VocalFrame = constrain(VocalFrame, 0, 2);
+
+let otherFrame = int(map(other, 0, 100, 0, 3));
+otherFrame = constrain(otherFrame, 0, 3);
+
+
+
+
+
 
 
  //stars setting
@@ -74,73 +86,84 @@ if (m.y > 540 || m.x > 800) {
  }
 }
 
+
+
+
 //stage
 noStroke();
-fill (220, 20, 60);  
-quad(500, 450, 300, 450, 0,530,800,530);
-fill(169,169, 169);
-rect(400,540, 800, 20);
+fill (37, 77, 112);  
+quad(500, 350, 300, 350, 0,430,800,430);
+fill(19,29,79);
+rect(400,490, 800, 120);
 
 //speakers
 stroke(75, 54, 33);
 strokeWeight(4);
 fill(101,67,33);
-rect(100, 420, 140, 200);
-rect(700, 420, 140, 200);
+rect(100, 320, 140, 200);
+rect(700, 320, 140, 200);
 
 noStroke();
 fill(59, 47, 47);
-rect(100, 370, other, 50);//left speaker
-rect(700, 370, other, 50);//right speaker
-ellipse(100, 450, drum, drum);//left speaker
-ellipse(700, 450, drum, drum);//right speaker
+rect(100, 270, other, 50);//left speaker
+rect(700, 270, other, 50);//right speaker
+ellipse(100, 350, drum, drum);//left speaker
+ellipse(700, 350, drum, drum);//right speaker
 
 //circle around the speaker(left)
-ellipse(45, 340, 10, 10);
-ellipse(155, 340, 10, 10);
+ellipse(45, 240, 10, 10);
+ellipse(155, 240, 10, 10);
+ellipse(45, 300, 10, 10);
+ellipse(155, 300, 10,10);
 ellipse(45, 400, 10, 10);
-ellipse(155, 400, 10,10);
-ellipse(45, 500, 10, 10);
-ellipse(155, 500, 10, 10);
+ellipse(155, 400, 10, 10);
 
 //circle around the speaker(right)
-ellipse(645, 340, 10, 10);
-ellipse(755, 340, 10, 10);
+ellipse(645, 240, 10, 10);
+ellipse(755, 240, 10, 10);
+ellipse(645, 300, 10, 10);
+ellipse(755, 300, 10, 10);
 ellipse(645, 400, 10, 10);
 ellipse(755, 400, 10, 10);
-ellipse(645, 500, 10, 10);
-ellipse(755, 500, 10, 10);
 
 //images
 push();
 scale (0.2);
-image(pic[VocalFrame],1500, 1000);
+image(pic[VocalFrame],1500, 550);
 pop ();
+
+
+
 
 //moon
 fill(255, 255, 0); //yellow
-ellipse(650, 150, 70, 70);
+ellipse(650, 100, 70, 70);
 fill(0);
-ellipse(630, 160, 50, 50);
+ellipse(630, 110, 50, 50);
 
 //mike
 fill(169,169, 169);
-ellipse(420, 350, 15, 15);
-rect(430, 425, 5, 150);
+ellipse(420, 250, 15, 15);
+rect(430, 325, 5, 150);
 fill(105, 105, 105);
-rect(430, 350, 20, 5);
+rect(430, 250, 20, 5);
 
 //mike stand
 stroke(169,169, 169);
 strokeWeight(2);
-line (430,470, 420, 505);
-line (430, 470, 440, 505);
+line (430,370, 420, 405);
+line (430, 370, 440, 405);
 stroke(0);
-line (420, 344, 420, 357);
-line (415, 346, 415, 355);
-line (425, 346, 425, 355);
-line (414, 348, 427, 348);
-line (414, 353, 427, 353);
+line (420, 244, 420, 257);
+line (415, 246, 415, 255);
+line (425, 246, 425, 255);
+line (414, 248, 427, 248);
+line (414, 253, 427, 253);
+
+push();
+scale(0.2);
+image(pic[3 + otherFrame], 10, 350);
+pop();
 
 }
 
