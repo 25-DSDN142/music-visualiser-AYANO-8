@@ -14,15 +14,15 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     pic[2] = loadImage("pic_3.png");
     pic[3] = loadImage("pic_4.png");
     pic[4] = loadImage("pic_5.png");
-    pic[5] = loadImage("pic_6.png");
-    pic[6] = loadImage("pic_7.png");
+    //pic[5] = loadImage("pic_6.png");
+    //pic[6] = loadImage("pic_7.png");
 imagesloaded = true;
 return;
 }
 
 //shooting stars setting
 if (counter > 4950 && counter - lastaddedframe >= shootingstarsgap) {
- for (let i = 0; i < 10; i++) { 
+ for (let i = 0; i < 40; i++) { 
  shootingstars.push({
  x: random(0, 800),
  y: random(0, 540),
@@ -174,11 +174,6 @@ line (415, 256, 415, 265);
 line (425, 256, 425, 265);
 line (414, 258, 427, 258);
 line (414, 263, 427, 263);
-
-
-
-ellipse(3, 89, 70, 170);
-ellipse(50, 50 ,300, 300);
 
 //the audience image
 push();
