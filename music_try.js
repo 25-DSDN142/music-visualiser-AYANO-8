@@ -22,7 +22,7 @@ return;
 
 //shooting stars setting
 if (counter > 4950 && counter - lastaddedframe >= shootingstarsgap) {
- for (let i = 0; i < 30; i++) { 
+ for (let i = 0; i < 40; i++) { 
  shootingstars.push({
  x: random(0, 800),
  y: random(0, 540),
@@ -62,13 +62,13 @@ if( bass < 79) {
   BassFrame = 1;
 }
   
-if (bass < 79) {
+/*if (bass < 79) {
   BassFrame = 1;
 } else if (bass < 100) {
   BassFrame = 2;
 } else {
   BassFrame = 3;
-}
+}*/
 
 
  //stars setting
@@ -108,9 +108,9 @@ if (m.y > 540 || m.x > 800) {
 
 //stage
 noStroke();
-fill (234, 34, 100);  
+fill (255, 34, 78);  
 quad(500, 350, 300, 350, 0,450,800,450);
-fill(52, 76, 183);
+fill(5, 98, 78);
 rect(400,510, 800, 120);
 
 //speakers
@@ -121,7 +121,7 @@ rect(100, 340, 140, 200);
 rect(700, 340, 140, 200);
 
 noStroke();
-fill(30, 9, 87);
+fill(30, 55, 89);
 rect(100, 290, other, 50);//left speaker
 rect(700, 290, other, 50);//right speaker
 ellipse(100, 370, drum, drum);//left speaker
