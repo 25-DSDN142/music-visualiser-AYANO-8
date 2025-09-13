@@ -22,7 +22,7 @@ return;
 
 //shooting stars setting
 if (counter > 4950 && counter - lastaddedframe >= shootingstarsgap) {
- for (let i = 0; i < 15; i++) { 
+ for (let i = 0; i < 30; i++) { 
  shootingstars.push({
  x: random(0, 800),
  y: random(0, 540),
@@ -92,7 +92,7 @@ for (let i = 0; i < stars.length; i++) {
 }
 
  // 流れ星を描画・移動//shooting stars
-  for (let i = shootingstars.length - 1; i >= 0; i--) {
+for (let i = shootingstars.length - 1; i >= 0; i--) {
   let m = shootingstars[i];
   fill(255, 235, 0);
   noStroke();
