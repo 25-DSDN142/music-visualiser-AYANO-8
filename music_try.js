@@ -22,7 +22,7 @@ return;
 
 //shooting stars setting
 if (counter > 4950 && counter - lastaddedframe >= shootingstarsgap) {
- for (let i = 0; i < 30; i++) { 
+ for (let i = 0; i < 40; i++) { 
  shootingstars.push({
  x: random(0, 800),
  y: random(0, 540),
