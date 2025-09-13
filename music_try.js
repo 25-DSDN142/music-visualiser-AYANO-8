@@ -42,9 +42,27 @@ rectMode(CENTER);
  //images setting
 let VocalFrame = int(map(vocal, 0, 100, 0, 3));
  VocalFrame = constrain(VocalFrame, 0, 2);
+if( vocal < 1) {
+  VocalFrame = 0;
+} else if (vocal < 70) {
+  VocalFrame = 1;
+} else {
+  VocalFrame = 2;
+} 
 
-let otherFrame = int(map(other, 0, 100, 0, 3));
-otherFrame = constrain(otherFrame, 0, 3);
+
+let BassFrame = int(map(bass, 0, 100, 0, 3));
+BassFrame = constrain(BassFrame, 0, 3);
+if( bass < 70) {
+  BassFrame = 0;
+} else if (bass < 90) {
+  BassFrame = 1;
+} else if (bass < 100) {
+  BassFrame = 2;
+} else {
+  BassFrame = 3;
+}
+
 
 
 
@@ -67,7 +85,7 @@ if (!starsInitialized) {
  //push stars
 for (let i = 0; i < stars.length; i++) {
  let s = stars[i];
- fill(255,255,230, random(200, 90)); // how many stars
+ fill(255,235, 0, random(200, 90)); // how many stars
  noStroke();
  ellipse(s.x, s.y, s.size, s.size);
 }
@@ -75,7 +93,7 @@ for (let i = 0; i < stars.length; i++) {
  // 流れ星を描画・移動//shooting stars
   for (let i = shootingstars.length - 1; i >= 0; i--) {
   let m = shootingstars[i];
-  fill(255,255, 230);//soft yellow
+  fill(255, 235, 0);
   noStroke();
   ellipse(m.x, m.y, m.size, m.size);
    m.y += m.speedY;
@@ -91,24 +109,27 @@ if (m.y > 540 || m.x > 800) {
 
 //stage
 noStroke();
-fill (37, 77, 112);  
+fill (234, 34, 100);  
 quad(500, 350, 300, 350, 0,430,800,430);
-fill(19,29,79);
+fill(75, 0, 130);
 rect(400,490, 800, 120);
 
 //speakers
-stroke(75, 54, 33);
+stroke(0);
 strokeWeight(4);
-fill(101,67,33);
+fill(0, 9, 87);
 rect(100, 320, 140, 200);
 rect(700, 320, 140, 200);
 
+
+
 noStroke();
-fill(59, 47, 47);
+fill(52, 76, 183);
 rect(100, 270, other, 50);//left speaker
 rect(700, 270, other, 50);//right speaker
 ellipse(100, 350, drum, drum);//left speaker
 ellipse(700, 350, drum, drum);//right speaker
+
 
 //circle around the speaker(left)
 ellipse(45, 240, 10, 10);
@@ -136,10 +157,10 @@ pop ();
 
 
 //moon
-fill(255, 255, 0); //yellow
-ellipse(650, 100, 70, 70);
+fill(255, 235, 0); //yellow
+ellipse(670, 110, 80, 80);
 fill(0);
-ellipse(630, 110, 50, 50);
+ellipse(650, 120, 70, 70);
 
 //mike
 fill(169,169, 169);
@@ -162,8 +183,8 @@ line (414, 253, 427, 253);
 
 push();
 scale(0.2);
-image(pic[3 + otherFrame], 10, 350);
-pop();
+image(pic[3 + BassFrame], 100, 350);
+pop()
 
 }
 
