@@ -42,7 +42,7 @@ rectMode(CENTER);
 let VocalFrame = int(map(vocal, 0, 100, 0, 3));
  //VocalFrame = constrain(VocalFrame, 0, 2);
  //ratios
-if( vocal < 19) {
+if( vocal < 22) {
   VocalFrame = 0;
 } else if (vocal < 72) {
   VocalFrame = 1;
