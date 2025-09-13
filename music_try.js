@@ -14,11 +14,11 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     pic[2] = loadImage("pic_3.png");
     pic[3] = loadImage("pic_4.png");
     pic[4] = loadImage("pic_5.png");
-    pic[5] = loadImage("pic_6.png");
-    pic[6] = loadImage("pic_7.png");
+    //pic[5] = loadImage("pic_6.png");
+    //pic[6] = loadImage("pic_7.png");
 imagesloaded = true;
 return;
-  }
+}
 
 //shooting stars setting
 if (counter > 4950 && counter - lastaddedframe >= shootingstarsgap) {
@@ -42,7 +42,7 @@ rectMode(CENTER);
 let VocalFrame = int(map(vocal, 0, 100, 0, 3));
  //VocalFrame = constrain(VocalFrame, 0, 2);
  //ratios
-if( vocal < 20) {
+if( vocal < 19) {
   VocalFrame = 0;
 } else if (vocal < 72) {
   VocalFrame = 1;
@@ -56,15 +56,19 @@ if( vocal < 20) {
 let BassFrame = int(map(bass, 0, 100, 0, 3));
 //BassFrame = constrain(BassFrame, 0, 3);
 //ratios
-if( bass < 70) {
+if( bass < 79) {
   BassFrame = 0;
-} else if (bass < 79) {
+} else  {
+  BassFrame = 1;
+}
+  
+/*if (bass < 79) {
   BassFrame = 1;
 } else if (bass < 100) {
   BassFrame = 2;
 } else {
   BassFrame = 3;
-}
+}*/
 
 
  //stars setting
@@ -118,8 +122,8 @@ rect(700, 340, 140, 200);
 
 noStroke();
 fill(30, 9, 87);
-rect(100, 280, other, 50);//left speaker
-rect(700, 280, other, 50);//right speaker
+rect(100, 290, other, 50);//left speaker
+rect(700, 290, other, 50);//right speaker
 ellipse(100, 370, drum, drum);//left speaker
 ellipse(700, 370, drum, drum);//right speaker
 
