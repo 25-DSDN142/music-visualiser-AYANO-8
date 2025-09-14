@@ -6,6 +6,7 @@ let starsInitialized = false;
 let shootingstars = [];
 let shootingstarsgap = 30;
 let lastaddedframe = 0;
+let starnumber = 540;
 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   if(!imagesloaded) {
@@ -16,6 +17,8 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     pic[4] = loadImage("pic_5.png");
     //pic[5] = loadImage("pic_6.png");
     //pic[6] = loadImage("pic_7.png");
+    pic[7] =loadImage("pic_8.png");
+
 imagesloaded = true;
 return;
 }
@@ -54,9 +57,11 @@ if( vocal < 22) {
 
 //the audience image
 let BassFrame = int(map(bass, 0, 100, 0, 3));
+let otherFrame = int(map(other, 0, 100, 0, 2));
+//ohterFrame = constrain(other, 0, 2);
 //BassFrame = constrain(BassFrame, 0, 3);
 //ratios
-if( bass < 79) {
+if( bass < 80) {
   BassFrame = 0;
 } else  {
   BassFrame = 1;
@@ -122,9 +127,9 @@ rect(700, 340, 140, 200);
 
 noStroke();
 fill(30, 9, 87);
-rect(100, 290, bass, 50);//left speaker
-rect(700, 290, bass, 50);//right speaker
-ellipse(100, 370, other, other);//left speaker
+rect(100, 290, other, 50);//left speaker
+rect(700, 290, other, 50);//right speaker
+ellipse(100, 370, drum, drum);//left speaker
 ellipse(700, 370, drum, drum);//right speaker
 
 //circle around the speaker(left)
@@ -150,10 +155,10 @@ image(pic[VocalFrame],1500, 580);
 pop ();
 
 //moon
-/*fill(255, 235, 0); //yellow
+fill(255, 235, 0); //yellow
 ellipse(670, 110, 80, 80);
 fill(0);
-ellipse(650, 120, 70, 70);*/
+ellipse(650, 120, 70, 70);
 
 //mike
 fill(169,169, 169);
