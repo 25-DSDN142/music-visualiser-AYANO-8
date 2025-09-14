@@ -122,9 +122,9 @@ rect(700, 340, 140, 200);
 
 noStroke();
 fill(30, 9, 87);
-rect(100, 290, other, 50);//left speaker
-rect(700, 290, other, 50);//right speaker
-ellipse(100, 370, drum, drum);//left speaker
+rect(100, 290, bass, 50);//left speaker
+rect(700, 290, bass, 50);//right speaker
+ellipse(100, 370, other, other);//left speaker
 ellipse(700, 370, drum, drum);//right speaker
 
 //circle around the speaker(left)
@@ -150,10 +150,10 @@ image(pic[VocalFrame],1500, 580);
 pop ();
 
 //moon
-fill(255, 235, 0); //yellow
+/*fill(255, 235, 0); //yellow
 ellipse(670, 110, 80, 80);
 fill(0);
-ellipse(650, 120, 70, 70);
+ellipse(650, 120, 70, 70);*/
 
 //mike
 fill(169,169, 169);
