@@ -6,7 +6,6 @@ let starsInitialized = false;
 let shootingstars = [];
 let shootingstarsgap = 30;
 let lastaddedframe = 0;
-let starnumber = 540;
 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   if(!imagesloaded) {
@@ -17,8 +16,6 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     pic[4] = loadImage("pic_5.png");
     //pic[5] = loadImage("pic_6.png");
     //pic[6] = loadImage("pic_7.png");
-    pic[7] =loadImage("pic_8.png");
-
 imagesloaded = true;
 return;
 }
@@ -57,11 +54,9 @@ if( vocal < 22) {
 
 //the audience image
 let BassFrame = int(map(bass, 0, 100, 0, 3));
-let otherFrame = int(map(other, 0, 100, 0, 2));
-//ohterFrame = constrain(other, 0, 2);
 //BassFrame = constrain(BassFrame, 0, 3);
 //ratios
-if( bass < 80) {
+if( bass < 79) {
   BassFrame = 0;
 } else  {
   BassFrame = 1;
