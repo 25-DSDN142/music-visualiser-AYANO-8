@@ -145,12 +145,12 @@ ellipse(755, 420, 10, 10);
 
 //hedgehog images
 push();
-scale (0.3);
-image(pic[VocalFrame],1400, 580);
+scale (0.2);
+image(pic[VocalFrame],1500, 580);
 pop ();
 
 //moon
-fill(255, 225, 0); //yellow
+fill(255, 235, 0); //yellow
 ellipse(670, 110, 80, 80);
 fill(0);
 ellipse(650, 120, 70, 70);
@@ -174,6 +174,7 @@ line (415, 256, 415, 265);
 line (425, 256, 425, 265);
 line (414, 258, 427, 258);
 line (414, 263, 427, 263);
+
 
 
 //the audience image
